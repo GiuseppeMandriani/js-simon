@@ -83,7 +83,26 @@ $(document).ready(function(){
 
 
            console.log('I numeri da te inseriti sono: ', userList);
-           console.log('numeri corrispondenti da te inseriti sono:' , equalNumber);
+           console.log('I numeri corrispondenti da te inseriti sono:' , equalNumber);
+
+               if(equalNumber.length == 2){
+                console.log('AMBO, 2 NUMERI UGUALI ');
+                prova.text('AMBO, 2 NUMERI UGUALI ');
+            } else if(equalNumber.length == 3){
+                console.log('TERNA, 3 NUMERI UGUALI')
+                prova.text('TERNA, 3 NUMERI UGUALI');
+            } else if (equalNumber.length == 4){
+                console.log('QUATERNA, 4 NUMERI UGUALI');
+                prova.text('QUATERNA, 4 NUMERI UGUALI');
+            } else if(equalNumber.length == 5){
+                console.log('BINGO, 5 NUMERI UGUALI');
+                prova.text('BINGO, 5 NUMERI UGUALI');
+
+            } else{
+                console.log('HAI PERSO -- GAME OVER --')
+                prova.text('HAI PERSO -- GAME OVER --');
+
+            }
         }
 
         // Inizio Countdown
@@ -93,19 +112,6 @@ $(document).ready(function(){
         }
 
         },1000);
-
-
-
-
-    
-
-
-
-
-
-
-
-
 
 
     // End Doc Ready
