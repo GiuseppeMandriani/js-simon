@@ -29,6 +29,8 @@ $(document).ready(function(){
 
     var userList = [];          // Numeri inseriti dall'utente
 
+    var equalNumber = [];       // Numeri uguali
+
     // Setup
 
     var countDown = 5;
@@ -55,39 +57,44 @@ $(document).ready(function(){
 
 
     // CountDown e Richiesta numeri all'utente
-
     var interval = setInterval(function(){
+
+        
+        // Countdown terminato, richiesta numeri all'utente
         if( countDown === 0){
             clearInterval(interval);
             prova.text('tempo scaduto');
 
-           // Countdown terminato, richiesta numeri all'utente
+            //Richiesta numeri utente e verifiche
            for (var i = 0; i < size; i++){
                userNumber = parseInt(prompt('Inserire i numeri che si ricordano'));
-               
+
                // Verifico unicità e inserisco
 
-               while(userList.includes(userNumber) || ((userNumber < min) || (userNumber > max))){
+               while(userList.includes(userNumber) || ((userNumber < min) || (userNumber > max)) || (isNaN(userNumber))){
                    userNumber = parseInt(prompt('Inserire numero NON inserito o compreso nel range'));
 
                }
                userList.push(userNumber);
+               if(numberList.includes(userNumber)){
+                   equalNumber.push(userNumber);
+               }
            }
-           
+
+
            console.log('I numeri da te inseriti sono: ', userList);
-        } else{
+           console.log('numeri corrispondenti da te inseriti sono:' , equalNumber);
+        }
+
+        // Inizio Countdown
+        else{
             prova.text(countDown);
             countDown--;
         }
-        
+
         },1000);
 
 
-    // 
-
-    
-
-    // Timig dopo aver mostrato numeri
 
 
     
