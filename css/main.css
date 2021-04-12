@@ -9,3 +9,22 @@ body{
     font-family: sans-serif;
 }
 
+.container {
+    height: 100vh;
+    background-image: url(https://cdn.pixabay.com/photo/2019/09/12/18/21/bingo-4472302_1280.jpg);
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content:center;
+}
+
+.box{
+    background-color: rgba(0,0,0,.5);
+    padding: 15px 30px;
+    border-radius:5px;
+}
+
+.prova{
+    color: #fff;
+}
+

@@ -31,13 +31,14 @@ $(document).ready(function(){
 
     var equalNumber = [];       // Numeri uguali
 
+
     // Setup
 
     var countDown = 5;
 
     var min = 1;
 
-    var max = 100;
+    var max = 90;
 
     // Generatore numeri e visualizzazione in alert
 
@@ -63,7 +64,7 @@ $(document).ready(function(){
         // Countdown terminato, richiesta numeri all'utente
         if( countDown === 0){
             clearInterval(interval);
-            prova.text('tempo scaduto');
+            prova.text('Tempo scaduto');
 
             //Richiesta numeri utente e verifiche
            for (var i = 0; i < size; i++){
@@ -120,7 +121,7 @@ $(document).ready(function(){
 
             } else{
                 console.log('HAI PERSO -- GAME OVER --')
-                prova.text('HAI PERSO -- GAME OVER --');
+                prova.text('-- GAME OVER --');
 
             }
         }
