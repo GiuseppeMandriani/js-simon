@@ -21,22 +21,26 @@ $(document).ready(function(){
 
     // Refs
 
-    var size = 5;  // Numeri da memorizzare
+    var size = 5;               // Numeri da memorizzare
 
-    var numberList = [];  // Contenitore numeri
+    var numberList = [];        // Contenitore numeri
 
     var prova = $('.prova');
 
-    var userList = [];
+    var userList = [];          // Numeri inseriti dall'utente
 
     // Setup
 
-    var countDown = 3;
+    var countDown = 5;
 
-    // Generatore numeri e inserimento
+    var min = 1;
+
+    var max = 100;
+
+    // Generatore numeri e visualizzazione in alert
 
     while(numberList.length < size){
-        var number = getRandomNumber(1,100);
+        var number = getRandomNumber(min,max);
 
      // Verifico unicità e inserisco
      if(!numberList.includes(number)){
@@ -48,31 +52,38 @@ $(document).ready(function(){
 
     console.log(numberList);
     alert('Osserva e memorizza i numeri: ' + '\n' + numberList);
-    
-    
+
+
+    // CountDown e Richiesta numeri all'utente
+
     var interval = setInterval(function(){
         if( countDown === 0){
             clearInterval(interval);
-            prova.text('tempo scaduto')
+            prova.text('tempo scaduto');
 
-            for (var i = 0; i < size; i++){
-                userNumber = parseInt(prompt('Inserire i numeri che si ricordano'));
-                userList.push(userNumber);
+           // Countdown terminato, richiesta numeri all'utente
+           for (var i = 0; i < size; i++){
+               userNumber = parseInt(prompt('Inserire i numeri che si ricordano'));
+               
+               // Verifico unicità e inserisco
 
-                
-            }
-            console.log(userList);
+               while(userList.includes(userNumber) || ((userNumber < min) || (userNumber > max))){
+                   userNumber = parseInt(prompt('Inserire numero NON inserito o compreso nel range'));
 
-
-            
-
+               }
+               userList.push(userNumber);
+           }
+           
+           console.log('I numeri da te inseriti sono: ', userList);
         } else{
             prova.text(countDown);
             countDown--;
         }
-        // console.log('tempo scaduto');
+        
+        },1000);
 
-    },1000);
+
+    // 
 
     
 
