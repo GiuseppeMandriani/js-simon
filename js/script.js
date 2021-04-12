@@ -1,5 +1,5 @@
-console.log('JS Ok');
-console.log('JQ', $);
+// console.log('JS Ok');
+// console.log('JQ', $);
 
 
 /*******
@@ -25,6 +25,14 @@ $(document).ready(function(){
 
     var numberList = [];  // Contenitore numeri
 
+    var prova = $('.prova');
+
+    var userList = [];
+
+    // Setup
+
+    var countDown = 3;
+
     // Generatore numeri e inserimento
 
     while(numberList.length < size){
@@ -39,16 +47,38 @@ $(document).ready(function(){
     }
 
     console.log(numberList);
-    
     alert('Osserva e memorizza i numeri: ' + '\n' + numberList);
+    
+    
+    var interval = setInterval(function(){
+        if( countDown === 0){
+            clearInterval(interval);
+            prova.text('tempo scaduto')
+
+            for (var i = 0; i < size; i++){
+                userNumber = parseInt(prompt('Inserire i numeri che si ricordano'));
+                userList.push(userNumber);
+
+                
+            }
+            console.log(userList);
+
+
+            
+
+        } else{
+            prova.text(countDown);
+            countDown--;
+        }
+        // console.log('tempo scaduto');
+
+    },1000);
+
+    
 
     // Timig dopo aver mostrato numeri
 
-    var countDown = 2*1000;
 
-    var time = setTimeout(function(){
-        console.log('tempo scaduto');
-    }, countDown )
     
 
 
